@@ -1,8 +1,6 @@
-import './App.css';
 import { useState } from 'react';
-import { Todo } from './types';
-import { TodoList } from './TodoList';
-import { AddTodoForm } from './AddTodoForm';
+import { Todo } from '../types';
+import { AddTodoForm, TodoList } from '../features/todos';
 
 const mockTodos: Todo[] = [
 	{ id: 1, title: "Build Portfolio", completed: false },
