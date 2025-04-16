@@ -1,9 +1,8 @@
 import './App.css';
 import { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Todo } from './types';
 import { TodoList } from './TodoList';
+import { AddTodoForm } from './AddTodoForm';
 
 const mockTodos: Todo[] = [
 	{ id: 1, title: "Build Portfolio", completed: false },
@@ -13,6 +12,17 @@ const mockTodos: Todo[] = [
 
 function App() {
 	const [todos, setTodos] = useState<Todo[]>(mockTodos);
+	const [nextId, setNextId] = useState<number>(mockTodos.length + 1);
+
+	const addTodo = (title: string) => {
+		const newTodo: Todo = {
+			id: nextId,
+			title,
+			completed: false,
+		};
+		setTodos((prevTodos) => [...prevTodos, newTodo]);
+		setNextId((prevId) => prevId + 1);
+	};
 
 	const toggleTodo = (id: number) => {
 		setTodos((prevTodos) =>
@@ -35,10 +45,11 @@ function App() {
 						This is a demo todo app using Vite, React, TypeScript, Tailwind CSS, and ShadCN UI.
 					</p>
 				</header>
-				<section className="flex gap-3">
-					<Input placeholder="Add a new task..." className="flex-1" />
-					<Button>Add</Button>
-				</section>
+				<AddTodoForm
+					onAddTodo={(title) => {
+						addTodo(title);
+					}}
+				/>
 				<TodoList
 					todos={todos}
 					onToggleTodo={(id) => {
