@@ -12,3 +12,7 @@ Within the project directory run:
 `npm run dev`
 
 This will start up the Vite local server, most commonly at `http://localhost:5173/`.
+
+### Testing
+
+Run unit tests with the command `npm run test`.
