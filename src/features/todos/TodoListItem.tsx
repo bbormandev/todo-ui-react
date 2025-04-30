@@ -1,3 +1,4 @@
+import { Checkbox } from '@/components/ui/checkbox';
 import { Todo } from '../../types';
 
 type Props = {
@@ -9,14 +10,14 @@ type Props = {
 export function TodoListItem({ todo, onToggleTodo, onDeleteTodo }: Props) {
 	return (
 		<div className="flex items-center gap-2">
-			<input
-				type="checkbox"
+			<Checkbox
+				id={`todo-${todo.id}`}
 				checked={todo.completed}
-				onChange={() => onToggleTodo(todo.id)}
+				onCheckedChange={() => onToggleTodo(todo.id)}
 			/>
-			<span className={todo.completed ? 'line-through' : ''}>
+			<label className={todo.completed ? 'line-through' : ''} htmlFor={`todo-${todo.id}`}>
 				{todo.title}
-			</span>
+			</label>
 			<button onClick={() => onDeleteTodo(todo.id)}>Delete</button>
 		</div>
 	);
