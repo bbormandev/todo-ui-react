@@ -1,5 +1,8 @@
 import { Checkbox } from '@/components/ui/checkbox';
+import { Button } from "@/components/ui/button";
 import { Todo } from '../../types';
+import { cn } from '@/lib/utils';
+import { Label } from '@radix-ui/react-label';
 
 type Props = {
 	todo: Todo,
@@ -9,16 +12,16 @@ type Props = {
 
 export function TodoListItem({ todo, onToggleTodo, onDeleteTodo }: Props) {
 	return (
-		<div className="flex items-center gap-2">
+		<div className="group flex items-center gap-2">
 			<Checkbox
 				id={`todo-${todo.id}`}
 				checked={todo.completed}
 				onCheckedChange={() => onToggleTodo(todo.id)}
 			/>
-			<label className={todo.completed ? 'line-through' : ''} htmlFor={`todo-${todo.id}`}>
+			<Label className={cn('cursor-pointer', todo.completed && 'line-through')} htmlFor={`todo-${todo.id}`}>
 				{todo.title}
-			</label>
-			<button onClick={() => onDeleteTodo(todo.id)}>Delete</button>
+			</Label>
+			<Button onClick={() => onDeleteTodo(todo.id)} variant="ghost" className="group-hover:opacity-100 opacity-0 transition-opacity">Delete</Button>
 		</div>
 	);
 }
