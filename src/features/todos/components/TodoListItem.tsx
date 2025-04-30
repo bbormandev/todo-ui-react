@@ -1,6 +1,6 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from "@/components/ui/button";
-import { Todo } from '../../types';
+import { Todo } from '../../../types';
 import { cn } from '@/lib/utils';
 import { Label } from '@radix-ui/react-label';
 

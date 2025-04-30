@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { TodoList } from "../TodoList";
+import { TodoList } from "../components/TodoList";
 import { Todo } from '../../../types';
 
 describe("TodoList", () => {

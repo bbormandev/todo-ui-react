@@ -1,3 +1,3 @@
-export { AddTodoForm } from './AddTodoForm';
-export { TodoList } from './TodoList';
-export { TodoListItem } from './TodoListItem';
+export { AddTodoForm } from './components/AddTodoForm';
+export { TodoList } from './components/TodoList';
+export { TodoListItem } from './components/TodoListItem';
