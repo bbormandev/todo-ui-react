@@ -31,7 +31,9 @@ describe("App", () => {
 		const todo = screen.getByText('Toggle Todo');
 		await user.click(todo);
 
-		expect(todo).toHaveClass('line-through');
+		// Item was remounted in completed list, so we need to query again.
+		const toggled = screen.getByText('Toggle Todo')
+		expect(toggled).toHaveClass('line-through')
 	});
 
 	it('deletes a todo', async () => {

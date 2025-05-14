@@ -50,10 +50,15 @@ export function useTodo() {
 		saveTodos(updated);
 	};
 
+	const completedTodos = todos.filter((todo) => todo.completed);
+	const openTodos = todos.filter((todo) => !todo.completed);
+
 	return {
 		todos,
 		addTodo,
 		toggleTodo,
 		deleteTodo,
+		completedTodos,
+		openTodos,
 	};
 }
