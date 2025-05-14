@@ -1,8 +1,19 @@
 import { AddTodoForm, TodoList } from '@/features/todos';
 import { useTodo } from '@/features/todos/hooks';
+import { useEffect, useState } from 'react';
+import { Todo } from '@/features/todos/types';
 
 function TodoPage() {
+	const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
+	const [openTodos, setOpenTodos] = useState<Todo[]>([]);
 	const { todos, addTodo, toggleTodo, deleteTodo } = useTodo();
+
+	useEffect(() => {
+		const completed = todos.filter(todo => todo.completed);
+		const open = todos.filter(todo => !todo.completed);
+		setCompletedTodos(completed);
+		setOpenTodos(open);
+	}, [todos]);
 
 	return (
 		<main className="min-h-screen flex flex-col items-center px-4 py-12 bg-gray-50 text-gray-900">
@@ -19,7 +30,16 @@ function TodoPage() {
 					}}
 				/>
 				<TodoList
-					todos={todos}
+					todos={openTodos}
+					onToggleTodo={(id) => {
+						toggleTodo(id);
+					}}
+					onDeleteTodo={(id) => {
+						deleteTodo(id);
+					}}
+				/>
+				<TodoList
+					todos={completedTodos}
 					onToggleTodo={(id) => {
 						toggleTodo(id);
 					}}

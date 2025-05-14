@@ -1,6 +1,6 @@
 // features/todos/hooks/useTodo.ts
 import { useEffect, useState } from 'react';
-import { Todo } from '../../../types';
+import { Todo } from '@/features/todos/types';
 
 const STORAGE_KEY = 'todos';
 
