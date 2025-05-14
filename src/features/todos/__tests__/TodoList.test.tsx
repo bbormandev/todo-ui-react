@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { TodoList } from "../components/TodoList";
-import { Todo } from '../../../types';
+import { Todo } from '../types';
 
 describe("TodoList", () => {
 	it("displays CTA when list is empty", () => {

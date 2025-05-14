@@ -1,4 +1,4 @@
-import { Todo } from '../../types';
+import { Todo } from '../types';
 import { TodoListItem } from './TodoListItem';
 
 type Props = {
