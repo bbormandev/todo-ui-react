@@ -5,8 +5,8 @@ function TodoPage() {
 	const { addTodo, toggleTodo, deleteTodo, openTodos, completedTodos } = useTodo();
 
 	return (
-		<main className="min-h-screen flex flex-col items-center px-4 py-12 bg-gray-50 text-gray-900">
-			<div className="w-full max-w-4xl bg-white shadow p-8 space-y-8">
+		<main className="min-h-screen flex flex-col items-center sm:px-4 sm:py-12 bg-gray-50 text-gray-900">
+			<div className="w-full min-h-[100dvh] sm:min-h-fit max-w-4xl bg-white shadow p-8 space-y-8">
 				<header>
 					<h1 className="text-4xl font-bold mb-2">React Todo App</h1>
 					<p className="text-gray-600 text-lg">
