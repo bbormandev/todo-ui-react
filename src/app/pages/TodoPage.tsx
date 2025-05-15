@@ -24,11 +24,13 @@ function TodoPage() {
 					todos={openTodos}
 					onToggleTodo={toggleTodo}
 					onDeleteTodo={deleteTodo}
+					showEmptyMesage={true}
 				/>
 				<TodoList
 					todos={completedTodos}
 					onToggleTodo={toggleTodo}
 					onDeleteTodo={deleteTodo}
+					showEmptyMesage={false}
 				/>
 			</div>
 		</main>

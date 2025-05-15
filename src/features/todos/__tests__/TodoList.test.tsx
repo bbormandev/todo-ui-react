@@ -7,7 +7,7 @@ describe("TodoList", () => {
 		const mockToggle = vi.fn();
 		const mockDelete = vi.fn();
 		const mockTodos: Todo[] = [];
-		render(<TodoList todos={mockTodos} onToggleTodo={mockToggle} onDeleteTodo={mockDelete} />)
+		render(<TodoList todos={mockTodos} onToggleTodo={mockToggle} onDeleteTodo={mockDelete} showEmptyMesage={true} />)
 
 		const emptyMessage = screen.getByText(/no tasks yet\. add one above!/i);
 		expect(emptyMessage).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("TodoList", () => {
 		const mockTodos: Todo[] = [
 			{ id: 1, title: "Build Portfolio", completed: false },
 		];
-		render(<TodoList todos={mockTodos} onToggleTodo={mockToggle} onDeleteTodo={mockDelete} />)
+		render(<TodoList todos={mockTodos} onToggleTodo={mockToggle} onDeleteTodo={mockDelete} showEmptyMesage={true} />)
 
 		const todoItem = screen.getByText(/build portfolio/i);
 		expect(todoItem).toBeInTheDocument();
