@@ -13,7 +13,7 @@ describe("App", () => {
 		render(<App />);
 
 		expect(
-			screen.getByRole('heading', { level: 1, name: /react todo app/i })
+			screen.getByRole('heading', { level: 1, name: /bdone/i })
 		).toBeInTheDocument();
 	});
 
